@@ -132,41 +132,66 @@ void test_sab_br(){
 
 void test_sab(){
   const uint64_t reps = 10;
-#if defined(SET_2_3)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 18, h_out = 512, msg_prec = 3;
+#if defined(SET_2_3_2048)
+  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 39, h_out = 512, msg_prec = 3;
   const double sigma_in = pow(2, -15);
   const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 9;
-#elif defined(SET_4_5)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 14, b_ks = 1, h_in = 21, h_out = 512, msg_prec = 5;
+  const uint64_t target_r_prec = 7;
+#elif defined(SET_2_3_4096)
+  const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 3;
+  const double sigma_in = pow(2, -15);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 8; 
+#elif defined(SET_2_3_8192)
+  const uint64_t in_N = 8192, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 25, h_out = 512, msg_prec = 3;
+  const double sigma_in = pow(2, -15);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 10; 
+#elif defined(SET_4_5_2048)
+  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 14, b_ks = 1, h_in = 42, h_out = 512, msg_prec = 5;
   const double sigma_in = pow(2, -17);
   const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 9;
-  #elif defined(SET_6_7)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 16, b_ks = 1, h_in = 28, h_out = 512, msg_prec = 7;
-  const double sigma_in = pow(2, -20);
+  const uint64_t target_r_prec = 7;
+#elif defined(SET_4_5_4096)
+  const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 14, b_ks = 1, h_in = 34, h_out = 512, msg_prec = 5;
+  const double sigma_in = pow(2, -18);
   const double sigma_out = pow(2, -50);
   const uint64_t target_r_prec = 8;
-#elif defined(SET_8_9)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 9;
-  const double sigma_in = pow(2, -23);
-  const double sigma_out = pow(2, -51);
-  const uint64_t target_r_prec = 8;
-#elif defined(SET_8_9_b)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 33, h_out = 512, msg_prec = 9;
-  const double sigma_in = pow(2, -23);
-  const double sigma_out = pow(2, -51);
-  const uint64_t target_r_prec = 8;
-#elif defined(SET_8_9_HIGH_FR)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 4096, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 18, b_ks = 1, h_in = 29, h_out = 512, msg_prec = 9;
+#elif defined(SET_4_5_8192)
+  const uint64_t in_N = 8192, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 14, b_ks = 1, h_in = 26, h_out = 512, msg_prec = 5;
+  const double sigma_in = pow(2, -18);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 10;
+#elif defined(SET_6_7_4096)
+  const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 17, b_ks = 1, h_in = 33, h_out = 512, msg_prec = 7;
   const double sigma_in = pow(2, -21);
   const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 8;
+  const uint64_t target_r_prec = 9;
+#elif defined(SET_6_7_8192)
+  const uint64_t in_N = 8192, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 17, b_ks = 1, h_in = 27, h_out = 512, msg_prec = 7;
+  const double sigma_in = pow(2, -21);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 10;
+#elif defined(SET_8_9_4096)
+  const uint64_t in_N = 4096, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 20, b_ks = 1, h_in = 34, h_out = 512, msg_prec = 9;
+  const double sigma_in = pow(2, -24);
+  const double sigma_out = pow(2, -51);
+  const uint64_t target_r_prec = 9;
+#elif defined(SET_8_9_8192)
+  const uint64_t in_N = 8192, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 20, b_ks = 1, h_in = 28, h_out = 512, msg_prec = 9;
+  const double sigma_in = pow(2, -24);
+  const double sigma_out = pow(2, -51);
+  const uint64_t target_r_prec = 10;
+#elif defined(SET_8_9_HIGH_FR)
+  const uint64_t in_N = 8192, in_k = 1, out_N = 4096, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 17, b_ks = 1, h_in = 28, h_out = 512, msg_prec = 9;
+  const double sigma_in = pow(2, -22);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 10;
 #else
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 10, b_ks = 1, h_in = 18, h_out = 512, msg_prec = 3;
+  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 39, h_out = 512, msg_prec = 3;
   const double sigma_in = pow(2, -15);
   const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 8;
+  const uint64_t target_r_prec = 7;
 #endif
   printf("Sparse bootstrapping with binary keys\n");
   printf("Input: (N=%ld, h=%ld, binary, σ=2^%ld)\n", in_N, h_in, (int64_t) round(log2(sigma_in)));
@@ -226,52 +251,57 @@ void test_sab(){
 
 void test_sab_tern(){
   const uint64_t reps = 10;
-#if defined(SET_2_3)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 17, h_out = 512, msg_prec = 3;
+#if defined(SET_2_3_2048)
+  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 35, h_out = 512, msg_prec = 3;
+  const double sigma_in = pow(2, -15);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 7;
+#elif defined(SET_2_3_4096)
+  const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 26, h_out = 512, msg_prec = 3;
   const double sigma_in = pow(2, -15);
   const double sigma_out = pow(2, -50);
   const uint64_t target_r_prec = 9;
-#elif defined(SET_4_5)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 14, b_ks = 1, h_in = 21, h_out = 512, msg_prec = 5;
-  const double sigma_in = pow(2, -17);
-  const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 8;
-#elif defined(SET_6_7)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 16, b_ks = 1, h_in = 27, h_out = 512, msg_prec = 7;
-  const double sigma_in = pow(2, -20);
-  const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 8;
-#elif defined(SET_8_9_HIGH_FR)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 4096, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 18, b_ks = 1, h_in = 27, h_out = 512, msg_prec = 9;
-  const double sigma_in = pow(2, -21);
-  const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 8;
-#elif defined(SET_8_9)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 30, h_out = 512, msg_prec = 9;
-  const double sigma_in = pow(2, -23);
-  const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 8;
-#elif defined(SET_L0)
-  const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 16, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 7;
-  const double sigma_in = pow(2, -24);
-  const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 9;
-  #elif defined(SET_L1)
-  const uint64_t in_N = 8192, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 16, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 7;
-  const double sigma_in = pow(2, -24);
+#elif defined(SET_2_3_8192)
+  const uint64_t in_N = 8192, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 23, h_out = 512, msg_prec = 3;
+  const double sigma_in = pow(2, -16);
   const double sigma_out = pow(2, -50);
   const uint64_t target_r_prec = 10;
-  #elif defined(SET_L2)
+#elif defined(SET_4_5_2048)
+  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 14, b_ks = 1, h_in = 38, h_out = 512, msg_prec = 5;
+  const double sigma_in = pow(2, -17);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 7;
+#elif defined(SET_4_5_4096)
+  const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 15, b_ks = 1, h_in = 28, h_out = 512, msg_prec = 5;
+  const double sigma_in = pow(2, -18);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 9;
+#elif defined(SET_4_5_8192)
+  const uint64_t in_N = 8192, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 15, b_ks = 1, h_in = 24, h_out = 512, msg_prec = 5;
+  const double sigma_in = pow(2, -18);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 10;
+#elif defined(SET_6_7_4096)
+  const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 17, b_ks = 1, h_in = 30, h_out = 512, msg_prec = 7;
+  const double sigma_in = pow(2, -21);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 9;
+#elif defined(SET_6_7_8192)
+  const uint64_t in_N = 8192, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 17, b_ks = 1, h_in = 25, h_out = 512, msg_prec = 7;
+  const double sigma_in = pow(2, -21);
+  const double sigma_out = pow(2, -50);
+  const uint64_t target_r_prec = 10;
+#elif defined(SET_8_9_4096)
   const uint64_t in_N = 4096, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 9;
   const double sigma_in = pow(2, -24);
   const double sigma_out = pow(2, -50);
   const uint64_t target_r_prec = 9;
-  #elif defined(SET_L3)
-  const uint64_t in_N = 8192, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 9;
-  const double sigma_in = pow(2, -24);
+#elif defined(SET_8_9_8192)
+  const uint64_t in_N = 8192, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 26, h_out = 512, msg_prec = 9;
+  const double sigma_in = pow(2, -23);
   const double sigma_out = pow(2, -50);
   const uint64_t target_r_prec = 10;
-  #else 
+#else 
   const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 10, b_ks = 1, h_in = 17, h_out = 512, msg_prec = 3;
   const double sigma_in = pow(2, -15);
   const double sigma_out = pow(2, -50);
@@ -305,7 +335,8 @@ void test_sab_tern(){
   TRLWE rlwe_in = trlwe_new_sample(poly_in, input_key);
   TRLWE rlwe_tv = trlwe_new_noiseless_trivial_sample(NULL, out_k, out_N);
   uint64_t LUT[1ULL << msg_prec];
-  for (size_t i = 0; i < (1ULL << msg_prec); i++) LUT[i] = ((i*i) &mod_mask);
+  generate_random_bytes(sizeof(uint64_t)*(1ULL << msg_prec), (uint8_t *) LUT);
+  for (size_t i = 0; i < (1ULL << msg_prec); i++) LUT[i] &= mod_mask;
   sab_LUT_packing(rlwe_tv, LUT, sab);
   // rlwe_tv->b->coeffs[0] += int2torus(1, 3);
 
@@ -337,46 +368,31 @@ void test_sab_arbitrary(){
   const uint64_t reps = 10;
   const uint64_t key_bound = 8; // key in Z_8 = [-3,+4]
 #if defined(SET_A2)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 17, h_out = 512, msg_prec = 3;
-  const double sigma_in = pow(2, -15);
-  const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 9;
-#elif defined(SET_A4)
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 15, b_ks = 1, h_in = 24, h_out = 512, msg_prec = 5;
-  const double sigma_in = pow(2, -18);
-  const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 8;
-#elif defined(SET_A6)
-const uint64_t in_N = 2048, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 30, h_out = 512, msg_prec = 7;
-const double sigma_in = pow(2, -23);
-const double sigma_out = pow(2, -50);
-const uint64_t target_r_prec = 8;
-#elif defined(SET_LA1)
   const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 5;
   const double sigma_in = pow(2, -24);
   const double sigma_out = pow(2, -50);
   const uint64_t target_r_prec = 9;
-#elif defined(SET_LA2)
+#elif defined(SET_A3)
   const uint64_t in_N = 8192, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 5;
   const double sigma_in = pow(2, -24);
   const double sigma_out = pow(2, -50);
   const uint64_t target_r_prec = 10;
-#elif defined(SET_LA3)
+#elif defined(SET_A4)
   const uint64_t in_N = 4096, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 7;
   const double sigma_in = pow(2, -24);
   const double sigma_out = pow(2, -50);
   const uint64_t target_r_prec = 9;
-#elif defined(SET_LA4)
+#elif defined(SET_A5)
   const uint64_t in_N = 8192, in_k = 1, out_N = 8192, out_k = 1, l = 1, bg_bit = 22, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 7;
   const double sigma_in = pow(2, -24);
   const double sigma_out = pow(2, -50);
   const uint64_t target_r_prec = 10;
 #else 
-  const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 10, b_ks = 1, h_in = 17, h_out = 512, msg_prec = 3;
-  const double sigma_in = pow(2, -15);
+  const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 5;
+  const double sigma_in = pow(2, -24);
   const double sigma_out = pow(2, -50);
-  const uint64_t target_r_prec = 8;
-  #endif
+  const uint64_t target_r_prec = 9;
+#endif
   printf("Sparse bootstrapping with arbitrary keys\n");
   printf("Input: (N=%ld, h=%ld, θ=%ld, σ=2^%ld)\n", in_N, h_in, key_bound, (int64_t) round(log2(sigma_in)));
   printf("Packing: (N=%ld, h=%ld, ternary, σ=2^%ld)\n", in_N, (uint64_t) 256, (int64_t) -44);

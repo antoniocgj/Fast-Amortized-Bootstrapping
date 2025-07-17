@@ -46,7 +46,7 @@ bool check_key(TRLWE_Key key, uint64_t h, uint64_t r_prec, SAB_Key sab){
 // rejection sampling for new key
 uint64_t RS_sparse_binary_key(TRLWE_Key * output_key, int N, int k, int h, double sigma, uint64_t target_r_prec){
   uint64_t attempts = 0;
-  for (size_t i = 0; i < 128; i++){
+  for (size_t i = 0; i < 1<<15; i++){
     attempts++;
     *output_key = trlwe_new_sparse_binary_key(N, k, h, sigma);
     uint64_t r_prec = get_min_prec(*output_key);
@@ -58,7 +58,7 @@ uint64_t RS_sparse_binary_key(TRLWE_Key * output_key, int N, int k, int h, doubl
 
 uint64_t RS_sparse_ternary_key(TRLWE_Key * output_key, int N, int k, int h, double sigma, uint64_t target_r_prec){
   uint64_t attempts = 0;
-  for (size_t i = 0; i < 128; i++){
+  for (size_t i = 0; i < 1<<15; i++){
     attempts++;
     *output_key = trlwe_new_ternary_key(N, k, h, sigma);
     uint64_t r_prec = get_min_prec(*output_key);
@@ -98,9 +98,11 @@ TRLWE_Key __gbl_rlwe_key;
 TRLWE_Key __gbl_rlwe_key_in;
 TRLWE_Key __gbl_rlwe_key_packing;
 
+// #define MEASURE_NOISE
+#ifdef MEASURE_NOISE
 #define DECRYPTION_FUNCTION(X) tlwe_phase(X, __gbl_extracted_key)
 #include <noise_util.h>
-// #define MEASURE_NOISE
+#endif
 
 SAB_Key new_sparse_amortized_bootstrapping(TRLWE_Key input_key, TRLWE_Key repacking_key, TRGSW_Key output_key, uint64_t b_prec, uint64_t b_packing, uint64_t ell_packing, uint64_t t_ks, uint64_t b_ks, uint64_t h, uint64_t r_prec, bool include_zeros, bool ternary, bool gaussian){
   SAB_Key res = (SAB_Key) safe_malloc(sizeof(*res));
@@ -272,7 +274,9 @@ void sub_a(TRLWE * p, uint64_t * a, uint64_t key_idx, SAB_Key sab){
 
 // p = p * x^{-as}
 void sparse_mul(TRLWE * p, uint64_t * a, uint64_t a_idx, SAB_Key sab){ 
+  #ifdef MEASURE_NOISE
   TorusPolynomial __debug_poly = polynomial_new_torus_polynomial(p[0]->b->N);
+  #endif
   for (size_t i = 0; i < sab->h; i++){
     RGSW_monomial_mul(p, sab->s[a_idx][i], sab);
     #ifdef MEASURE_NOISE
@@ -360,7 +364,9 @@ void sab_rlwe_bootstrap(TRLWE out, TRLWE in, TRLWE tv, SAB_Key sab){
   print_reset_noise();
   #endif
   sab_rlwe_bootstrap_wo_extract(sab->tmp->rlwe_poly1, in, tv, sab);
+  #ifdef MEASURE_NOISE
   reset_noise();
+  #endif
   for (size_t i = 0; i < sab->in_N; i++){
     trlwe_extract_tlwe(sab->tmp->extracted_poly[i], sab->tmp->rlwe_poly1[i], 0);
     #ifdef MEASURE_NOISE
