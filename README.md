@@ -102,9 +102,9 @@ Result with very high Failure Probability:
 
 ## Measuring noise
 
-To measure noise, uncomment line 278 of `src/sparse_amortized_bootstrapping.c`.
+To measure noise, uncomment line 101 of `src/sparse_amortized_bootstrapping.c`.
 
-Performance measurement are unreliable and correctness checks may fail when measuring noise.
+Performance measurements are unreliable, and correctness checks may fail when measuring noise.
 
 ## License
 
