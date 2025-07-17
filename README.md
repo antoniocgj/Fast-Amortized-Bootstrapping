@@ -14,8 +14,6 @@
  urldate = {2025-04-19},
  year = {2025}
 }
-
-
 ```
 
 
@@ -37,7 +35,7 @@ For other compiling options, see [MOSFHET](https://github.com/antoniocgj/MOSFHET
 
 ## Available parameters
 
-For each of the parameters below, SET_X_Y_Z refers to the bootstrapping of X-bit messages if the function is arbitrary or Y-bit messages if the function is negacyclic (See Remark 7.1.3 in the paper) for Z messages.
+For each of the parameters below, SET_X_Y_Z refers to the bootstrapping of X-bit messages if the function is arbitrary or Y-bit messages if the function is negacyclic (See Remark 7.1 in the paper) for Z messages.
 
 > [!WARNING]
 > Don't forget to add `FFT_LIB=spqlios A_PRNG=none ENABLE_VAES=false` to the `make` command if you don't have AVX512.

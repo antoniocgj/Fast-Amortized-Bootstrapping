@@ -141,44 +141,56 @@ prec = 4
 
 # main ones binary
 # 2/3
-scheme_0_1 = LeveledRGSW(2048, 12, 256, 512, 1, 2**-13, 2**-44, 2048, 2**-50, 1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=9, b_ks=1, msg_prec=3, r_prec=9, verbose=True)
+scheme_2_3_2048 = LeveledRGSW(2048, 39, 256, 512, 1, 2**-15, 2**-44, 2048, 2**-50, 1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=12, b_ks=1, msg_prec=3, r_prec=7, verbose=True)
+scheme_2_3_4096 = LeveledRGSW(4096, 32, 256, 512, 1, 2**-15 , 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=12, b_ks=1, msg_prec=3, r_prec=8, verbose=True)
+scheme_2_3_8192 = LeveledRGSW(8192, 25, 256, 512, 1, 2**-16 , 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=12, b_ks=1, msg_prec=3, r_prec=10, verbose=True)
 
-scheme_2_3 = LeveledRGSW(2048, 18, 256, 512, 1, 2**-15, 2**-44, 2048, 2**-50, 1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=12, b_ks=1, msg_prec=3, r_prec=9, verbose=True)
 # 4/5
-scheme_4_5 = LeveledRGSW(2048, 21, 256, 512, 1, 2**-17, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=14, b_ks=1, msg_prec=5, r_prec=9, verbose=True) 
+scheme_4_5_2048 = LeveledRGSW(2048, 42, 256, 512, 1, 2**-17, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=14, b_ks=1, msg_prec=5, r_prec=7, verbose=True) 
+scheme_4_5_4096 = LeveledRGSW(4096, 34, 256, 512, 1, 2**-18, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=14, b_ks=1, msg_prec=5, r_prec=8, verbose=True) 
+scheme_4_5_8192 = LeveledRGSW(8192, 26, 256, 512, 1, 2**-18, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=14, b_ks=1, msg_prec=5, r_prec=10, verbose=True) 
 # 6/7
-scheme_6_7 = LeveledRGSW(2048, 28, 256, 512, 1, 2**-20, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=16, b_ks=1, msg_prec=7, r_prec=8, verbose=True)
+scheme_6_7_4096 = LeveledRGSW(4096, 33, 256, 512, 1, 2**-21, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=17, b_ks=1, msg_prec=7, r_prec=9, verbose=True)
+scheme_6_7_8192 = LeveledRGSW(8192, 27, 256, 512, 1, 2**-21, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=17, b_ks=1, msg_prec=7, r_prec=10, verbose=True)
 # 8/9
-scheme_8_9_HFR = LeveledRGSW(2048, 29, 256, 512, 1, 2**-21, 2**-44, 4096, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=18, b_ks=1,  msg_prec=9, r_prec=8, verbose=True)
+scheme_8_9_HFR = LeveledRGSW(8192, 28, 256, 512, 1, 2**-22, 2**-44, 4096, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=17, b_ks=1,  msg_prec=9, r_prec=10, verbose=False)
 
-scheme_8_9_a = LeveledRGSW(2048, 32, 256, 512, 1, 2**-23, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=19, b_ks=1,  msg_prec=9, r_prec=9, verbose=True)
-scheme_8_9_b = LeveledRGSW(2048, 33, 256, 512, 1, 2**-23, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=19, b_ks=1,  msg_prec=9, r_prec=9, verbose=True)
+
+scheme_8_9_4096 = LeveledRGSW(4096, 34, 256, 512, 1, 2**-24, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=20, b_ks=1,  msg_prec=9, r_prec=9, verbose=False)
+scheme_8_9_8192 = LeveledRGSW(8192, 28, 256, 512, 1, 2**-24, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=20, b_ks=1,  msg_prec=9, r_prec=10, verbose=False)
 
 # main ones ternary
 # 2/3
-scheme_t_2_3_a = LeveledRGSW(2048, 16, 256, 512, 1, 2**-15, 2**-44, 2048, 2**-50, 1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=10, b_ks=1, msg_prec=3, r_prec=8, verbose=True, key_type="ternary")
-scheme_t_2_3_b = LeveledRGSW(2048, 17, 256, 512, 1, 2**-15, 2**-44, 2048, 2**-50, 1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=12, b_ks=1, msg_prec=3, r_prec=8, verbose=True, key_type="ternary")
+scheme_t_2_3_2048 = LeveledRGSW(2048, 35, 256, 512, 1, 2**-15, 2**-44, 2048, 2**-50, 1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=12, b_ks=1, msg_prec=3, r_prec=7, verbose=True, key_type="ternary")
+scheme_t_2_3_4096 = LeveledRGSW(4096, 26, 256, 512, 1, 2**-15, 2**-44, 2048, 2**-50, 1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=12, b_ks=1, msg_prec=3, r_prec=9, verbose=True, key_type="ternary")
+scheme_t_2_3_8192 = LeveledRGSW(8192, 23, 256, 512, 1, 2**-16, 2**-44, 2048, 2**-50, 1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=12, b_ks=1, msg_prec=3, r_prec=10, verbose=True, key_type="ternary")
 # 4/5
-scheme_t_4_5 = LeveledRGSW(2048, 21, 256, 512, 1, 2**-17, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=14, b_ks=1, msg_prec=5, r_prec=9, verbose=True,key_type="ternary") 
+scheme_t_4_5_2048 = LeveledRGSW(2048, 38, 256, 512, 1, 2**-17, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=14, b_ks=1, msg_prec=5, r_prec=7, verbose=True,key_type="ternary") 
+scheme_t_4_5_4096 = LeveledRGSW(4096, 28, 256, 512, 1, 2**-18, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=15, b_ks=1, msg_prec=5, r_prec=9, verbose=True,key_type="ternary") 
+scheme_t_4_5_8192 = LeveledRGSW(8192, 24, 256, 512, 1, 2**-18, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=15, b_ks=1, msg_prec=5, r_prec=10, verbose=True,key_type="ternary") 
 # 6/7
-scheme_t_6_7 = LeveledRGSW(2048, 27, 256, 512, 1, 2**-20, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=16, b_ks=1, msg_prec=7, r_prec=8, verbose=True, key_type="ternary")
+scheme_t_6_7_4096  = LeveledRGSW(4096, 30, 256, 512, 1, 2**-21, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=17, b_ks=1, msg_prec=7, r_prec=9, verbose=True, key_type="ternary")
+scheme_t_6_7_8192  = LeveledRGSW(8192, 25, 256, 512, 1, 2**-21, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=17, b_ks=1, msg_prec=7, r_prec=10, verbose=True, key_type="ternary")
 # 8/9
-scheme_t_8_9 = LeveledRGSW(2048, 30, 256, 512, 1, 2**-23, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=19, b_ks=1,  msg_prec=9, r_prec=9, verbose=True, key_type="ternary")
+scheme_t_8_9_4096 = LeveledRGSW(4096, 32, 256, 512, 1, 2**-24, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=19, b_ks=1,  msg_prec=9, r_prec=9, verbose=False, key_type="ternary")
+scheme_t_8_9_8192 = LeveledRGSW(8192, 26, 256, 512, 1, 2**-23, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=19, b_ks=1,  msg_prec=9, r_prec=10, verbose=False, key_type="ternary")
 
 ## increased dimension section
 
 # 4096 -> 2048
-scheme_L1 = LeveledRGSW(4096, 32, 256, 512, 1, 2**-23, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=16, b_ks=1, msg_prec=7, r_prec=8, verbose=True)
+scheme_L1 = LeveledRGSW(4096, 30, 256, 512, 1, 2**-20, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=16, b_ks=1, msg_prec=7, r_prec=8, verbose=True)
 # 4096 -> 8192
 scheme_L2 = LeveledRGSW(4096, 33, 256, 512, 1, 2**-24, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=19, b_ks=1,  msg_prec=9, r_prec=9, verbose=True)
 
 
 
 # 8192 -> 2048
-scheme_L3 = LeveledRGSW(8192, 32, 256, 512, 1, 2**-23, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=16, b_ks=1, msg_prec=7, r_prec=8, verbose=True)
+scheme_L3 = LeveledRGSW(8192, 25, 256, 512, 1, 2**-21, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=16, b_ks=1, msg_prec=7, r_prec=8, verbose=True, key_type="ternary")
 # 8192 -> 8192
-scheme_L4 = LeveledRGSW(8192, 32, 256, 512, 1, 2**-24, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=19, b_ks=1,  msg_prec=9, r_prec=9, verbose=True)
+scheme_L4 = LeveledRGSW(8192, 26, 256, 512, 1, 2**-23, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=18, b_ks=1,  msg_prec=9, r_prec=10, verbose=True, key_type="ternary")
 
+
+scheme_t_L1 = LeveledRGSW(4096, 30, 256, 512, 1, 2**-21, 2**-44, 2048, 2**-50, k=1, ell=1, bg_bit=23, ell_packing=2, b_packing=14, ell_ks=18, b_ks=1, msg_prec=7, r_prec=8, verbose=True, key_type="ternary")
 
 # 4096 -> 8192 ternary
 scheme_t_L2 = LeveledRGSW(4096, 32, 256, 512, 1, 2**-24, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=19, b_ks=1,  msg_prec=9, r_prec=9, verbose=True, key_type="ternary")
@@ -205,6 +217,6 @@ scheme_G4 = LeveledRGSW(8192, 32, 256, 512, 4, 2**-23, 2**-44, 2048, 2**-50, k=1
 # 8192 -> 8192
 scheme_G5 = LeveledRGSW(8192, 32, 256, 512, 4, 2**-24, 2**-44, 8192, 2**-50, k=1, ell=1, bg_bit=22, ell_packing=2, b_packing=14, ell_ks=19, b_ks=1,  msg_prec=9, r_prec=9, verbose=True, key_type="gaussian")
 
-scheme = scheme_t_8_9
+scheme = scheme_8_9_HFR
 bs_var = scheme.full_bootstrap(force_print=True)
 scheme.print_bootstrap_fr(bs_var)
