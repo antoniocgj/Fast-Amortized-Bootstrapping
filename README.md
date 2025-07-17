@@ -1,4 +1,4 @@
-# Fast-Amortized-Bootstrapping
+# Fast amortized bootstrapping with small keys and polynomial noise overhead
 
 ## Paper
 
