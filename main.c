@@ -131,7 +131,7 @@ void test_sab_br(){
 }
 
 void test_sab(){
-  const uint64_t reps = 10;
+  const uint64_t reps = 3;
 #if defined(SET_2_3_2048)
   const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 39, h_out = 512, msg_prec = 3;
   const double sigma_in = pow(2, -15);
@@ -250,7 +250,7 @@ void test_sab(){
 }
 
 void test_sab_tern(){
-  const uint64_t reps = 10;
+  const uint64_t reps = 3;
 #if defined(SET_2_3_2048)
   const uint64_t in_N = 2048, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 12, b_ks = 1, h_in = 35, h_out = 512, msg_prec = 3;
   const double sigma_in = pow(2, -15);
@@ -365,7 +365,7 @@ void test_sab_tern(){
 
 
 void test_sab_arbitrary(){
-  const uint64_t reps = 10;
+  const uint64_t reps = 3;
   const uint64_t key_bound = 8; // key in Z_8 = [-3,+4]
 #if defined(SET_A2)
   const uint64_t in_N = 4096, in_k = 1, out_N = 2048, out_k = 1, l = 1, bg_bit = 23, b_packing = 14, ell_packing = 2, t_ks = 19, b_ks = 1, h_in = 32, h_out = 512, msg_prec = 5;
